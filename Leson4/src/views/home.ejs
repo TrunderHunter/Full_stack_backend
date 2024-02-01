@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+
+    tr:hover {
+        background-color: #ccc;
+    }
+
+    .table-container {
+        padding: 30px 10px;
+    }
+
+    .table-container .title-table {
+        font-size: 28px;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+</style>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="\">Home</a>
+        <a href="\create">Create User</a>
+    </div>
+
+    <div class="table-container">
+        <%= JSON.stringify(listUsers) %>
+
+            <div class="title-table">Create New User</div>
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Actions</th>
+                </thead>
+
+                <% listUsers.forEach(function(user) { %>
+
+                    <tr>
+                        <td>
+                            <%= user.id %>
+                        </td>
+                        <td>
+                            <%= user.email %>
+                        </td>
+                        <td>
+                            <%= user.name %>
+                        </td>
+                        <td>
+                            <%= user.city %>
+                        </td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </table>
+    </div>
+</body>
+
+</html>
